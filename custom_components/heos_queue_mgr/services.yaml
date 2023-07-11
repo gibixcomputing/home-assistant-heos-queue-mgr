@@ -1,0 +1,45 @@
+clear_queue:
+  name: Clear Player Queue
+  description: Clears the queue for the selected player
+  target:
+    entity:
+      domain: media_player
+      integration: heos
+
+clear_queue_except_now_playing:
+  name: Clear Queue Except Now Playing
+  description: >
+    Empties the current player queue for all but the current playing media. This
+    helps support streaming media services to manage the queue manually.
+  target:
+    entity:
+      domain: media_player
+      integration: heos
+
+get_queue:
+  name: Get Player Queue
+  description: Gets the current media queue for a HEOS device
+  target:
+    entity:
+      domain: media_player
+      integration: heos
+
+remove_from_queue:
+  name: Remove Item From Queue
+  description: Remove an item from the player queue
+  target:
+    entity:
+      domain: media_player
+      integration: heos
+  fields:
+    queue_id:
+      name: Queue ID
+      description: Queue ID number to remove
+      required: true
+      example: 2
+      selector:
+        number:
+          min: 1
+          max: 10000
+          step: 1
+          mode: box
